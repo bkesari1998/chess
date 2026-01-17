@@ -1,6 +1,6 @@
 class Board {
-    public final int NUM_RANKS = 8;
-    public final int NUM_FILES = 8;
+    private final int NUM_RANKS = 8;
+    private final int NUM_FILES = 8;
 
     private final int WHITE_MINOR_START_RANK_IDX = 1;
     private final int WHITE_MAJOR_START_RANK_IDX = 0;
@@ -15,7 +15,6 @@ class Board {
     private final int F_FILE_IDX = 5;
     private final int G_FILE_IDX = 6;
     private final int H_FILE_IDX = 7;
-
 
     private final Square[][] squares;
 
@@ -50,41 +49,41 @@ class Board {
     private void placePawnsInStartingPositions(Color color, int startRankIndex) {
         Square[] startRank = this.squares[startRankIndex];
         for (Square square : startRank) {
-            square.placePiece(new Pawn(color));
+            square.placePiece(new Pawn(color, square));
         }
     }
 
     private void placeRooksInStartingPositions(Color color, int startRankIndex) {
         Square startSquareAFile = this.squares[startRankIndex][A_FILE_IDX];
-        startSquareAFile.placePiece(new Rook(color));
+        startSquareAFile.placePiece(new Rook(color, startSquareAFile));
 
         Square startSquareHFile = this.squares[startRankIndex][H_FILE_IDX];
-        startSquareHFile.placePiece(new Rook(color));
+        startSquareHFile.placePiece(new Rook(color, startSquareHFile));
     }
 
     private void placeKnightsInStartingPositions(Color color, int startRankIndex) {
         Square startSquareBFile = this.squares[startRankIndex][B_FILE_IDX];
-        startSquareBFile.placePiece(new Knight(color));
+        startSquareBFile.placePiece(new Knight(color, startSquareBFile));
 
         Square startSquareGFile = this.squares[startRankIndex][G_FILE_IDX];
-        startSquareGFile.placePiece(new Knight(color));
+        startSquareGFile.placePiece(new Knight(color, startSquareGFile));
     }
 
     private void placeBishopsInStartingPositions(Color color, int startRankIndex) {
         Square startSquareCFile = this.squares[startRankIndex][C_FILE_IDX];
-        startSquareCFile.placePiece(new Bishop(color));
+        startSquareCFile.placePiece(new Bishop(color, startSquareCFile));
 
         Square startSquareFFile = this.squares[startRankIndex][F_FILE_IDX];
-        startSquareFFile.placePiece(new Bishop(color));
+        startSquareFFile.placePiece(new Bishop(color, startSquareFFile));
     }
 
     private void placeQueenInStartingPosition(Color color, int startRankIndex) {
         Square startSquareDFile = this.squares[startRankIndex][D_FILE_IDX];
-        startSquareDFile.placePiece(new Queen(color));
+        startSquareDFile.placePiece(new Queen(color, startSquareDFile));
     }
 
     private void placeKingInStartingPosition(Color color, int startRankIndex) {
         Square startSquareEFile = this.squares[startRankIndex][E_FILE_IDX];
-        startSquareEFile.placePiece(new King(color));
+        startSquareEFile.placePiece(new King(color, startSquareEFile));
     }
 }
