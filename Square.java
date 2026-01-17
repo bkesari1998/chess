@@ -11,4 +11,8 @@ public class Square {
     void placePiece(Piece piece) {
         this.occupyingPiece = piece;
     }
+
+    Piece getPiece() {
+        return this.occupyingPiece;
+    }
 }

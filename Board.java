@@ -86,4 +86,27 @@ class Board {
         Square startSquareEFile = this.squares[startRankIndex][E_FILE_IDX];
         startSquareEFile.placePiece(new King(color, startSquareEFile));
     }
+
+    public void printBoard() {
+        System.out.println("    a b c d e f g h");
+        System.out.println("  +-----------------+");
+        for (int rank = NUM_RANKS - 1; rank >= 0; rank--) {
+            System.out.print((rank + 1) + " | ");
+            for (int file = 0; file < NUM_FILES; file++) {
+                Piece piece = squares[rank][file].getPiece();
+                System.out.print(getPieceSymbol(piece) + " ");
+            }
+            System.out.println("| " + (rank + 1));
+        }
+        System.out.println("  +-----------------+");
+        System.out.println("    a b c d e f g h");
+    }
+
+    private char getPieceSymbol(Piece piece) {
+        if (piece == null) {
+            return '.';
+        }
+
+        return piece.color == Color.WHITE ? piece.abbrev : Character.toLowerCase(piece.abbrev);
+    }
 }
