@@ -1,5 +1,7 @@
 public class Knight extends Piece {
-    public Knight(Color color) {
-        super(color);
+    private static final char ABBREV = 'N';
+
+    public Knight(Color color, Square startSquare) {
+        super(color, ABBREV, startSquare);
     }
 }

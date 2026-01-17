@@ -1,5 +1,7 @@
 public class Bishop extends Piece {
-    public Bishop(Color color) {
-        super(color);
+    private static final char ABBREV = 'B';
+
+    public Bishop(Color color, Square startSquare) {
+        super(color, ABBREV, startSquare);
     }
 }

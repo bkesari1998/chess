@@ -1,5 +1,7 @@
 public class Rook extends Piece {
-    public Rook(Color color) {
-        super(color);
+    private static final char ABBREV = 'R';
+
+    public Rook(Color color, Square startSquare) {
+        super(color, ABBREV, startSquare);
     }
 }

@@ -1,5 +1,7 @@
 public class King extends Piece {
-    public King(Color color) {
-        super(color);
+    private static final char ABBREV = 'K';
+
+    public King(Color color, Square startSquare) {
+        super(color, ABBREV, startSquare);
     }
 }
